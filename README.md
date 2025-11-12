@@ -28,6 +28,12 @@ Case 2: **Install Ubuntu 25.10 via Partition Cloning**: Please refer to [Case 2]
 
 
 
+## GRUB2 Command Shell - Quick Start
+
+1- [Rescue a non-booting GRUB2 on Linux](./quick-starts/Rescue a non-booting GRUB2 on Linux.md)
+
+2- [Use Grub2 command line to boot up](./quick-starts/Use Grub2 command line to boot up.md)
+
 ## Reference
 
 GNU Grub Manual 2.12 (in html format): [Official website](https://www.gnu.org/software/grub/manual/grub/grub.html) or [local downloadable](./reference/GNU-Grub-Manual-2.12.html)
