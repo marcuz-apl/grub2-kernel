@@ -22,7 +22,7 @@ This simple partition table scheme, without the `lvm`, saves a lot of time somet
 
 ## Case Studies with Step-by-Step Guide
 
-Case 1: **Rebuild the Grub2 Bootloader for a VMDK**: Please refer to [Case 1](./Rebuild-the-Grub2-Bootloader.md) for detailed guide.
+Case 1: **Rebuild the Grub2 Bootloader for a VMDK**: Please refer to [Case 1](./Migrate-a-Legacy-BIOS-Linux-System-to-UEFI-Scheme.md) for detailed guide.
 
 Case 2: **Install Ubuntu 25.10 via Partition Cloning**: Please refer to [Case 2](./Install-Ubuntu-25.10-via-Partition-Cloning.md) for full story.
 
