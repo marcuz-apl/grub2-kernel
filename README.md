@@ -4,7 +4,7 @@ by marcuz-apl | 24 Oct 2025
 
 
 
-## Case Study
+## Intro
 
 I met a situation, that one of my Ubuntu Workstations was down due to failure of its EFI Partition, while the data partition of OS, apps, projects was still okay (accessible from other OS, if sharing out).
 
@@ -20,9 +20,11 @@ This simple partition table scheme, without the `lvm`, saves a lot of time somet
 
 
 
-## How-to Guide
+## Case Studies with Step-by-Step Guide
 
-Please refer to [Rebuild the Grub2 Bootloader](./Rebuild-the-Grub2-Bootloader.md) for detailed guide.
+Case 1: **Rebuild the Grub2 Bootloader for a VMDK**: Please refer to [Case 1](./Rebuild-the-Grub2-Bootloader.md) for detailed guide.
+
+Case 2: **Install Ubuntu 25.10 via Partition Cloning**: Please refer to [Case 2](./Install-Ubuntu-25.10-via-Partition-Cloning.md) for full story.
 
 
 
