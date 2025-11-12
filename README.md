@@ -22,17 +22,17 @@ This simple partition table scheme, without the `lvm`, saves a lot of time somet
 
 ## Case Studies with Step-by-Step Guide
 
-Case 1: **Rebuild the Grub2 Bootloader for a VMDK**: Please refer to [Case 1](./Migrate-a-Legacy-BIOS-Linux-System-to-UEFI-Scheme.md) for detailed guide.
+Case 1: **[Migrate a Legacy BIOS Linux System to UEFI Scheme in VM](./Migrate-a-Legacy-BIOS-Linux-System-to-UEFI-Scheme-in-VM.md)**
 
-Case 2: **Install Ubuntu 25.10 via Partition Cloning**: Please refer to [Case 2](./Install-Ubuntu-25.10-via-Partition-Cloning.md) for full story.
+Case 2: **[Install Ubuntu 25.10 via Partition Cloning](./Install-Ubuntu-25.10-via-Partition-Cloning.md)**
 
 
 
 ## GRUB2 Command Shell - Quick Start
 
-1- [Rescue a non-booting GRUB2 on Linux](./quick-starts/Rescue a non-booting GRUB2 on Linux.md)
+1- **[Rescue a non-booting GRUB2 on Linux](./quick-starts/Rescue-a-non-booting-GRUB2-on-Linux.md)**
 
-2- [Use Grub2 command line to boot up](./quick-starts/Use Grub2 command line to boot up.md)
+2- **[Use Grub2 command line to boot up](./quick-starts/Use-Grub2-command-line -to-boot-up.md)**
 
 ## Reference
 
