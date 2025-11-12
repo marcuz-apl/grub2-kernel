@@ -1,4 +1,4 @@
-# Use Grub2 command line to boot up
+# Use GRUB2 command line to boot up
 
 If you are using GRUB 2 as your bootloader, you can use GRUB's command line to choose which partition to boot from and which partition to mount as root.
 
