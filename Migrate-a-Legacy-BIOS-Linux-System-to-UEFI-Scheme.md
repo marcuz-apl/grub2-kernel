@@ -203,17 +203,6 @@ To create a GRUB bootloader on `/dev/sdb` using the configuration from `/dev/sda
   sudo chroot /mnt
   ```
 
-* If error: `grub-install: warning: EFI variables cannot be set on this system` , please refer to Section "bbbbbb", but I would run the commands below prior to next step:
-
-  ```shell
-  ## exit from chroot env
-  exit
-  modprobe efivarfs
-  mount -t efivarfs efivarfs /sys/firmware/efi/efivars
-  ## Re-enter into chroot env
-  sudo chroot /mnt
-  ```
-
   
 
 * **For UEFI systems**: Reinstall the GRUB EFI packages:
@@ -228,15 +217,23 @@ To create a GRUB bootloader on `/dev/sdb` using the configuration from `/dev/sda
 
   ```shell
   grub-install /dev/sdb
-  ```
-
-  * If using **UEFI**, the command might be:
-
-
-  ```shell
+  ## If using **UEFI**, the command might be:
   ## grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Ubuntu25 /dev/sdb
   ```
-
+  
+  * If error: `grub-install: warning: EFI variables cannot be set on this system` , pleaserun the commands below prior to next step:
+  
+    ```shell
+    ## exit from chroot env
+    exit
+    modprobe efivarfs
+    mount -t efivarfs efivarfs /sys/firmware/efi/efivars
+    ## Re-enter into chroot env
+    sudo chroot /mnt
+    ```
+  
+    
+  
 * Update GRUB configuration.
 
   ```shell
@@ -314,7 +311,7 @@ Once in the live session, open a terminal (press `Ctrl + Alt + T` or search for 
 
 1. List your disk partitions to identify your main Ubuntu partition and your EFI System Partition (ESP) using the following command:
 
-   ```
+   ```shell
    sudo fdisk -l
    ```
    
@@ -324,13 +321,13 @@ Once in the live session, open a terminal (press `Ctrl + Alt + T` or search for 
 
 Mount your main Ubuntu partition to the `/mnt` directory. Replace `/dev/sda2` with your actual Linux partition name: 
 
-```
+```shell
 sudo mount /dev/sda2 /mnt
 ```
 
 If you have a separate `/boot` or `/boot/efi` partition, mount them as well: 
 
-```
+```shell
 # If you have a separate /boot partition
 sudo mount /dev/sda3 /mnt/boot
 
@@ -373,7 +370,7 @@ Save it.
 
 Change the root directory to your installed Ubuntu system: 
 
-```
+```shell
 sudo chroot /mnt
 ```
 
@@ -383,13 +380,13 @@ Now you are working within your actual installed system's environment.
 
 **a) For UEFI systems: Reinstall the GRUB EFI packages**
 
-```
+```shell
 apt-get install --reinstall grub-efi-amd64 shim-signed
 ```
 
 **b) Install GRUB to your main disk**. Replace `/dev/sda` with your actual *disk* name (not the partition number, e.g., use `/dev/sda`, not `/dev/sda2`):
 
-```
+```shell
 grub-install /dev/sda
 ```
 
@@ -397,7 +394,7 @@ grub-install /dev/sda
 
 **c) Update the GRUB configuration** to detect any other operating systems (like Windows):
 
-```
+```shell
 update-grub
 ```
 
@@ -405,7 +402,7 @@ update-grub
 
 If no errors occurred, exit the `chroot` environment and unmount the partitions: 
 
-```
+```shell
 exit
 sudo umount -R /mnt
 sudo umount -R -l /mnt    ## If the system complains: /mnt is busy
@@ -417,7 +414,7 @@ sudo umount -R -l /mnt    ## If the system complains: /mnt is busy
 
 For a simpler, often quicker solution, you can use the **Boot-Repair** utility from the live session, which can automate this process. You can install it in the live terminal with the following commands: 
 
-```
+```shell
 sudo add-apt-repository ppa:yannubuntu/boot-repair
 sudo apt update
 sudo apt install boot-repair
@@ -446,7 +443,7 @@ Once booted, the new SATA disk becomes `/dev/sda` since no other disks is connec
 
 Use `efibootmgr` to create or modify UEFI boot entries to point to the GRUB bootloader on `/dev/sda`.
 
-```
+```shell
 sudo efibootmgr -c -d /dev/sda -p 1 -L "My New Ubuntu OS" -l "\EFI\Ubuntu\shimx64.efi" 
 ```
 
