@@ -30,7 +30,7 @@ Case 2: **Install Ubuntu 25.10 via Partition Cloning**: Please refer to [Case 2]
 
 ## Reference
 
-GNU Grub Manual 2.12.html: [Official website](https://www.gnu.org/software/grub/manual/grub/grub.html) or [local downloadable](./reference/GNU-Grub-Manual-2.12.html)
+GNU Grub Manual 2.12 (in html format): [Official website](https://www.gnu.org/software/grub/manual/grub/grub.html) or [local downloadable](./reference/GNU-Grub-Manual-2.12.html)
 
 Grub 2 bootloader - Full Tutorial: [Official website](https://www.dedoimedo.com/computers/grub-2.html) or [local downloadable](./reference/Grub2-bootloader-Full-Tutorial-dedoimedo.md)
 

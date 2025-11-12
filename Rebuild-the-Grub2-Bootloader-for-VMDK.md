@@ -1,4 +1,4 @@
-# Rebuild the Grub2 Bootloader
+# Migrate a Legacy BIOS Linux system to UEFI System
 
 by marcuz-apl | 24 October 2025
 
@@ -6,7 +6,7 @@ by marcuz-apl | 24 October 2025
 
 ## Table of Contents
 
-[Case Study: Migrate a Legacy BIOS Linux system to UEFI System](#case-study-migrate-a-legacy-bios-linux-system-to-uefi-system)
+[Case Profile](#case-profile)
 
 [Pre-requisite - Prepare the new SATA disk](#pre-requisite---prepare-the-new-sata-disk)
 
@@ -20,7 +20,7 @@ by marcuz-apl | 24 October 2025
 
 
 
-## Case Study: Migrate a Legacy BIOS Linux system to UEFI System
+## Case Profile
 
 I have a Ubuntu 25.10 system, which I've customized quite a bit and engaged quite some apps and projects going on there, but it's running in a Legacy BIOS mode. Shame on me, using Legacy BIOS in 2025. Now I decided to migrate such to a modern UEFI based system on another disk without re-installing the entire OS and Apps and even those projects.
 
