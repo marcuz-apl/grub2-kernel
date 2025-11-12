@@ -274,7 +274,7 @@ Now we are gonna create a GRUB bootloader on `/dev/sdb` using the configuration 
   /dev/sda1: UUID="DE5B-E306" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="efi" PARTUUID="44683ae3-1ff3-42d4-a059-01884a92de8a"
   /dev/sda2: UUID="bf044976-c0c6-4fcf-822f-085c98009ead" BLOCK_SIZE="4096" TYPE="ext4" PARTLABEL="system" PARTUUID="4a84ae9b-f248-4eac-90e9-df1ab4a78f39"
   
-  /dev/sdb1: UUID="EDF6-716" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="efi" PARTUUID="2d9d0d58-......"
+  /dev/sdb1: UUID="EDF6-7165" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="efi" PARTUUID="2d9d0d58-......"
   /dev/sdb2: UUID="2404556e-e7de-48fb-a07f-5e81b99ca105" BLOCK_SIZE="4096" TYPE="ext4" PARTLABEL="system" PARTUUID="0b63ab5b-298b-4b5f-ac3e-e8c79e8fb391"
   /dev/sdb3: UUID="9246-66F3" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="DATA" PARTUUID="5f29337b-......"
   ```
