@@ -32,7 +32,7 @@ Case 2: **[Install Ubuntu 25.10 via Partition Cloning](./Install-Ubuntu-25.10-vi
 
 1- **[Rescue a non-booting GRUB2 on Linux](./quick-starts/Rescue-a-non-booting-GRUB2-on-Linux.md)**
 
-2- **[Use GRUB2 command line to boot up](./quick-starts/Use-GRUB2-command-line -to-boot-up.md)**
+2- **[Use GRUB2 Command Line to Boot up](./quick-starts/Use-GRUB2-Command-Line-to-Boot-up.md)**
 
 3- **[How to Rescue or Reinstall Grub - the Manual Way](./quick-starts/How-to-Rescue-or-Reinstall-GRUB-the-Manual-Way.md)**
 
