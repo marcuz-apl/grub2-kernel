@@ -25,6 +25,18 @@ It turns out the kernel 6.8.0-40 / 87 of Ubuntu 22.04 has a compatibility issue 
 
 
 
+## Kernel Versioning of Ubuntu 22.04
+
+| Ubuntu release | Kernel version | Remarks                             |
+| -------------- | -------------- | ----------------------------------- |
+| 22.04          | 5.15           | (GA) linux-image-5.15.0-161-generic |
+| 22.04.2        | 5.19           | (HWE) linux-image-5.19.0-generic    |
+| 22.04.4        | 6.5            | (HWE) linux-image-6.5.0-generic     |
+| 22.04.5        | 6.8            | (HWE) linux-image-6.8.0-40-generic  |
+| 22.04.x        | latest         | (HWE) linux-generic-hwe-22.04       |
+
+
+
 ## Downgrade Kernel to (GA) 5.15.0-161 using Boot-Repair tool
 
 Boot with a Live DVD or ISO file of Ubuntu 22.04.
