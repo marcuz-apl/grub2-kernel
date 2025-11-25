@@ -40,9 +40,11 @@ Case 2: **[Install Ubuntu 25.10 via Partition Cloning](./Install-Ubuntu-25.10-vi
 
 
 
-## kernel manipulated
+## Kernel is much Essential
 
-1- [Update Kernel for Ubuntu 22.04](./kernel/Update-Kernel-for-Ubuntu-22.04.md)
+1- [Update Kernel for Ubuntu 22.04](./kernel/Update-Kernel-for-Ubuntu-22.04-Debian-12.md)
+
+2- [Kernel Version of Ubuntu-Debian Track](./kernel/Update-Kernel-for-Ubuntu-22.04-Debian-12.md)
 
 
 
