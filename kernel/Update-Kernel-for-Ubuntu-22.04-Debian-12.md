@@ -65,7 +65,7 @@ boot-repair
 ## Click "Advanced options" to specify details of the perging and installing.
 ```
 
-It shall grab the best GA kernel (5.15.0-161) for this old workstation.
+It shall grab the best **GA kernel 5.15.0-161** for this old workstation.
 
 Then umount the partitions and reboot the system.
 
@@ -86,30 +86,30 @@ uname -r
 ## 5.15.0-161-generic
 ```
 
-Obviously this GA kernel `5.15.0-161-generic` is in good standing.
+Obviously this GA kernel `5.15.0-161-generic` is in good standing since  have not observed any issues.
 
 
 
-## Part 4 - Install Ubuntu 22.04.3 and Remove the updated kernel
+## Part 4 - Install Ubuntu 22.04.3 and Remove the Problematic Kernel
 
-After a few hiccups with Ubuntu 22.04.5, I turned to a lower version of Ubuntu 22.04.3, which started with an **initial kernel (GA): 6.2.0-26-generic**, without any issue. But when Installing the Ubuntu release, the kernel actually got **updated to 6.8.0-87-generic** at first place.
+After a few hiccups with Ubuntu 22.04.5, I turned to a lower version of Ubuntu 22.04.3, which starts with an **initial GA kernel: 6.2.0-26-generic** without any issue. But after a session of `apu update && apt upgrade`, the kernel actually got **updated to 6.8.0-87-generic**. This newly updated kernel makes me headache since it won't boot up my old Workstation. 
 
-Then What we need to do is remove the "too-new" Kernel 6.8.0-87-generic.
+Then What we need to do is remove the "too new" Kernel 6.8.0-87-generic. Then boot up a Live DVD/ISO or switch to another working kernel (if you can do so).
 
-1- **Check the kernel version you are currently using** with the following command. Ensure the output is **not** `6.8.0-87-generic` or any version you intend to remove. If you are using this kernel, you  must reboot your system and select a different, older, but working  kernel from the GRUB menu's "__Advanced options for Ubuntu__" submenu before proceeding
+**1- Check the kernel version you are currently using** with the following command. Ensure the output is **not** `6.8.0-87-generic` or any version you intend to remove. If you are using this kernel, you  must reboot your system and select a different, older, but working  kernel from the GRUB menu's "__Advanced options for Ubuntu__" submenu before proceeding. I chose `kernel 6.2.0-26-generic`.
 
 ```shell
-## Ensure the output is not 
+## Ensure the output is not 6.8.0-87-generic
 uname -srv
 ```
 
-The output belikes:
+The output be likes:
 
 ```text
 Linux 6.2.0-26-generic #26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jul 13 16:27:29 UTC 2
 ```
 
-2- **List the installed kernel packages** to confirm their exact names:
+**2- List the installed kernel packages** to confirm their exact names:
 
 ```shell
 dpkg --list | grep 6.8.0-87-generic
@@ -125,14 +125,15 @@ linux-modules-extra-6.8.0-87-generic       6.8.0-87.88~22.04.1
 linux-tools-6.8.0-87-generic               6.8.0-87.88~22.04.1
 ```
 
-3- **Remove the kernel image and headers** using the `apt purge` command, which removes the packages and their config files:
+**3- Remove the kernel image and headers** using the `apt purge` command, which removes the packages and their config files:
 
 ```shell
 sudo apt purge linux-{headers,image,modules,modules-extra,tools}-6.8.0-87-generic
+sudo apt autoremove
 ls -la /boot
 ```
 
-The process will remove the 5 packages and update the `/boot` folder, and update the grub menu.
+The process will remove the 5 packages, clean up the `/boot` folder, and update the grub menu.
 
 
 
@@ -220,7 +221,7 @@ sudo apt install linux-image-5.19.0-50-generic linux-headers-5.19.0-50-generic -
 reboot
 ```
 
-It turns out this kernel `65.19.0-50-generic` has some issues: (1) NMD; (2) NSE.
+It turns out this kernel `5.19.0-50-generic` has some issues: (1) NMD; (2) NSE.
 
 Then remove this kernel out:
 
@@ -241,7 +242,7 @@ __5. GA kernel 6.1.0-29-amd64__ of Debian 12.9 (**Part 7**)
 
 First Download the headers and image: 
 
-basically there is no such exact version 6.1.0.29-amd64 anymore, but 6.1.0-41-amd64 on ftp.debian.org (signed) and debian.stanford.edu (unsigned). 
+Basically there is no such exact version 6.1.0.29-amd64 anymore, but 6.1.0-41-amd64 on ftp.debian.org (signed) and debian.stanford.edu (unsigned). 
 
 ```shell
 ## linux-image (pick up 6.1.0-41-amd64)
@@ -251,6 +252,9 @@ wget https://ftp.debian.org/debian/pool/main/l/linux-signed-amd64/linux-image-6.
 ## linux-headers
 wget https://ftp.debian.org/debian/pool/main/l/linux-signed-amd64/linux-headers-amd64_6.1.158-1_amd64.deb
 # wget https://debian.stanford.edu/debian/pool/main/l/linux/linux-headers-6.1.0-41-amd64_6.1.158-1_amd64.deb
+
+## usb-storage-modules
+wget https://ftp.debian.org/debian/pool/main/l/linux-signed-amd64/usb-storage-modules-6.1.0-41-amd64-di_6.1.158-1_amd64.udeb
 ```
 
 Then install them:
@@ -274,6 +278,15 @@ dpkg --list | grep 6.1.0-41-amd64
 ## linux-image-6.1.0-41-amd64
 sudo apt purge linux-{headers,image}-6.1.0-41-amd64
 sudo apt autoremove
+```
+
+Try mainline channel, which are unsigned though:
+
+```shell
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.2/amd64/linux-headers-6.2.0-060200-generic_6.2.0-060200.202302191831_amd64.deb
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.2/amd64/linux-headers-6.2.0-060200_6.2.0-060200.202302191831_all.deb
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.2/amd64/linux-image-unsigned-6.2.0-060200-generic_6.2.0-060200.202302191831_amd64.deb
+wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.2/amd64/linux-modules-6.2.0-060200-generic_6.2.0-060200.202302191831_amd64.deb
 ```
 
 
@@ -321,7 +334,13 @@ lsmod | grep nouveau
 
 ## Part 7 - Update Debian 12.9 Kernel from 6.1.0-29 to LTS 6.1.148-1
 
-Debian 12.9 comes with Kernel 6.1.0-29-generic, working perfectly.
+> [!NOTE]
+>
+> Debian 12.9 comes with Kernel 6.1.0-29-generic, working perfectly on my Old Workstation.
+
+But with more time and energy, I would like to mess around a bit - Updating the kernel to a higher version.
+
+**1- LTS kernel 6.1.148-1**
 
 First Download the headers and image https://deb.sipwise.com/debian/pool/main/l/linux-signed-amd64 for the great collection of signed kernel pools:
 
@@ -329,6 +348,7 @@ First Download the headers and image https://deb.sipwise.com/debian/pool/main/l/
 ## https://deb.sipwise.com/debian/pool/main/l/linux-signed-amd64/
 ## https://deb.sipwise.com/debian/pool/main/l/linux-signed-arm64/
 ## https://deb.sipwise.com/debian/pool/main/l/linux-signed-i386/
+
 wget https://deb.sipwise.com/debian/pool/main/l/linux-signed-amd64/linux-headers-amd64_6.1.148-1_amd64.deb
 wget https://deb.sipwise.com/debian/pool/main/l/linux-signed-amd64/linux-image-6.1.0-39-rt-amd64_6.1.148-1_amd64.deb
 ```
@@ -343,17 +363,10 @@ sudo dpkg -i linux-signed-amd64/linux-headers-amd64_6.1.148-1_amd64.deb
 sudo dpkg -i inux-image-6.1.0-39-rt-amd64_6.1.148-1_amd64.deb
 ```
 
-
-
-The Update the Grub:
+Then update the Grub and reboot the machine:
 
 ```shell
-update-grub
-```
-
-Finally reboot the machine:
-
-```shell
+sudo update-grub
 reboot
 ```
 

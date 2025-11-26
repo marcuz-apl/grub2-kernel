@@ -38,13 +38,15 @@ Case 2: **[Install Ubuntu 25.10 via Partition Cloning](./Install-Ubuntu-25.10-vi
 
 4- **[Fix Ubuntu Not Booting Issue with Boot Repair tool](./command-shell/Fix-Ubuntu-Not-Booting-with-Boot-Repair.md)**
 
+5- [Operations on Grub](./command-shell/Operations-on-Grub.md)
+
 
 
 ## Kernel is much Essential
 
-1- [Update Kernel for Ubuntu 22.04](./kernel/Update-Kernel-for-Ubuntu-22.04-Debian-12.md)
+1- [Update Kernel for Ubuntu 22.04 and Debian 12](./kernel/Update-Kernel-for-Ubuntu-22.04-Debian-12.md)
 
-2- [Kernel Version of Ubuntu-Debian Track](./kernel/Update-Kernel-for-Ubuntu-22.04-Debian-12.md)
+2- [Kernel Version and Operations of Ubuntu-Debian](./kernel/Kernel-Versions-and-Operations-of-Ubuntu-Debian.md)
 
 
 
