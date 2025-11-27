@@ -350,7 +350,7 @@ First Download the headers and image https://deb.sipwise.com/debian/pool/main/l/
 ## https://deb.sipwise.com/debian/pool/main/l/linux-signed-i386/
 
 wget https://deb.sipwise.com/debian/pool/main/l/linux-signed-amd64/linux-headers-amd64_6.1.148-1_amd64.deb
-wget https://deb.sipwise.com/debian/pool/main/l/linux-signed-amd64/linux-image-6.1.0-39-rt-amd64_6.1.148-1_amd64.deb
+wget https://deb.sipwise.com/debian/pool/main/l/linux-signed-amd64/linux-image-6.1.0-39-amd64_6.1.148-1_amd64.deb
 ```
 
 Then install them:
