@@ -48,7 +48,13 @@ Have a Live Debian 12.9 ISO handy.
 
 Run your VMware Workstations as Administrator; then add the Physical Disk (the whole disk) as a hard disk into the VM.
 
-- The working Linux system is ready as **/dev/sda** (200GB)
+- The working Linux system on VM is ready as **/dev/sda** (200GB)
+
+- Uninstall the drivers of the graphic card. Please run command below in VM.
+
+  ```shell
+  sudo apt remove --purge open-vm-tools open-vm-tools-desktop
+  ```
 
 - The problematic SATA Disk is listed as **/dev/sdb** (1.8TB)
 
