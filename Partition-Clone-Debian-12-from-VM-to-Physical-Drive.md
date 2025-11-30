@@ -246,16 +246,20 @@ sudo rmdir /mnt/{src,dst}
 >
 > **Exit from the VMware system**.
 >
-> **Boot the system with a Live DVD/ISO of Debian 12.9** to perform system adjustments.
+> **Attach the Physical drive back to a physical machine.**
+>
+> **Boot the physical machine with a Live DVD/ISO of Debian 12.9** to perform system adjustments.
 
 * Mount necessary system directories from the local running `/dev/sdb` to `/mnt`.
 
   ```shell
+  ## Mount root and EFI partitions
   sudo mount /dev/sdb3 /mnt
   sudo mount /dev/sdb1 /mnt/boot/efi
-  
-  ## If booting with the VM, do the below
-  # for i in dev dev/pts proc sys run; do sudo mount -R /$i /mnt/$i; done
+  ## mount a few local directory from the Live Debian
+  for i in dev dev/pts proc sys run; do sudo mount -R /$i /mnt/$i; done
+  ## Copy the intenet connection config file
+  sudo cp /etc/resolv.conf /mnt/etc/resolv.conf
   ```
 
 * `Chroot` into the mounted system.
@@ -273,7 +277,7 @@ sudo rmdir /mnt/{src,dst}
 * **For UEFI systems** (optional): Reinstall the GRUB EFI packages as needed (Most likely /boot/efi already gave this:
 
   ```shell
-  ## apt-get install --reinstall grub-efi-amd64 shim-signed   ## Most likely /boot/efi already have this 
+  # apt-get install --reinstall grub-efi-amd64 shim-signed   ## Most likely /boot/efi already have this 
   ```
 
 * **Rebuild `initramfs`**
